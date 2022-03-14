@@ -1,0 +1,14 @@
+@use "../../../scss//abstract" as *;
+
+.tests {
+    // background-color: $back_export_color;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    @include xsBreakPoint {
+        background-color: red;
+    }
+}
+.ptage {
+    color: $next-text;
+}
