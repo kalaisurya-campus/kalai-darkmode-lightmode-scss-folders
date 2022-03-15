@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 function FormValidation(props) {
+    const [updates, SetUpdates] = useState({
+        firstname: "",
+        lastname: "",
+        middlename: "",
+        email: "",
+        password: "",
+        confirmpassword: "",
+    });
+    const {
+        firstname,
+        lastname,
+        middlename,
+        email,
+        password,
+        confirmpassword,
+    } = updates;
+    const handlechnageskey = (e) => {
+        SetUpdates({ ...updates, [e.target.name]: e.target.value });
+    };
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        console.log(data);
+        console.log("over all datas send api backend", updates);
+        alert("update success");
+    };
     return (
         <div>
             <div className="inside px-2">
@@ -15,10 +38,15 @@ function FormValidation(props) {
                         <label>FirstName</label>
                         <br />
                         <input
-                            {...register("firstname", { required: true })}
+                            {...register("firstname", {
+                                required: "no records",
+                            })}
                             type="text"
                             name="firstname"
-                        ></input>
+                            value={firstname}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.firstname && (
                             <span style={{ color: "red" }}>
                                 FirtstName field Empty
@@ -32,7 +60,10 @@ function FormValidation(props) {
                             {...register("lastname", { required: true })}
                             type="text"
                             name="lastname"
-                        ></input>
+                            value={lastname}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.lastname && (
                             <span style={{ color: "red" }}>
                                 LastName field Empty
@@ -46,7 +77,10 @@ function FormValidation(props) {
                             {...register("middlename", { required: true })}
                             type="text"
                             name="middlename"
-                        ></input>
+                            value={middlename}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.middlename && (
                             <span style={{ color: "red" }}>
                                 MiddleName field Empty
@@ -60,13 +94,16 @@ function FormValidation(props) {
                             {...register("email", {
                                 required: true,
                                 pattern: {
-                                    value: "\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b",
-                                    message: "not",
+                                    value: /[A-Za-z]{3}/,
+                                    message: "no founds",
                                 },
                             })}
                             type="text"
                             name="email"
-                        ></input>
+                            value={email}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.email && (
                             <span style={{ color: "red" }}>
                                 Email field Empty
@@ -80,7 +117,10 @@ function FormValidation(props) {
                             {...register("password", { required: true })}
                             type="text"
                             name="password"
-                        ></input>
+                            value={password}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.password && (
                             <span style={{ color: "red" }}>
                                 password field Empty
@@ -94,7 +134,10 @@ function FormValidation(props) {
                             {...register("confirmpassword", { required: true })}
                             type="text"
                             name="confirmpassword"
-                        ></input>
+                            value={confirmpassword}
+                            onChange={handlechnageskey}
+                        ></input>{" "}
+                        <br />
                         {errors.confirmpassword && (
                             <span style={{ color: "red" }}>
                                 ConformPaswword field Empty

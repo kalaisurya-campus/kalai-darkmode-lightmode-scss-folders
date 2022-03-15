@@ -16,7 +16,13 @@ function Navbars({ dark, setdark }) {
                     ></ion-icon>
                 )}
             </p>
-            <p>{dark?<p style={{color:"white"}}>Dark Mode Page</p>:"Light Mode Page"}</p>
+            <p>
+                {dark ? (
+                    <p style={{ color: "white" }}>Dark Mode Page</p>
+                ) : (
+                    "Light Mode Page"
+                )}
+            </p>
         </div>
     );
 }
