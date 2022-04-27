@@ -1,0 +1,16 @@
+.sides {
+    width: 100%;
+    background-color: blue;
+    height: 100%;
+    .images {
+        display: flex;
+
+        flex-direction: column;
+        font-size: 2rem !important;
+        color: white !important;
+
+        align-items: center;
+        gap: 40px;
+        padding: 15px;
+    }
+}

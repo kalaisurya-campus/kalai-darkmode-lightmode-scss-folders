@@ -1,0 +1,24 @@
+.lists {
+    width: 70%;
+    height: auto;
+    border: 2px solid red;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 2px 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mains {
+    width: 100%;
+    .lists {
+        width: 70%;
+        height: auto;
+        border: 2px solid red;
+        margin: 20px auto;
+        border-radius: 5px;
+        padding: 2px 3px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

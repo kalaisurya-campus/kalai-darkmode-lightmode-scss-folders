@@ -1,0 +1,27 @@
+@use "../../scss/abstract/" as *;
+
+.apps {
+    width: 100%;
+    height: 100vh;
+    background-color: green;
+    overflow: hidden;
+    margin-bottom: 10px;
+    .tops {
+        width: 100%;
+        height: 8% !important;
+        border: 3px solid blue;
+    }
+    .sidesed {
+        width: 100% !important;
+        height: 100%;
+        display: flex;
+    }
+    .sidesnavabrs {
+        width: 5%;
+        border: 2px solid orange;
+        height: 92%;
+        @include xsBreakPoint {
+            width: 20%;
+        }
+    }
+}

@@ -29,6 +29,7 @@ function FormValidation(props) {
         console.log(data);
         console.log("over all datas send api backend", updates);
         alert("update success");
+        SetUpdates("").resetForm();
     };
     return (
         <div>
